@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://d2630qawyoewo"]
+
+[ext_resource type="Script" uid="uid://co4aonogvieyc" path="res://components/player.gd" id="1_0g4kb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_if8o1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_if8o1"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1040119494]
+script = ExtResource("1_0g4kb")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1716744844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37311167, 0)
+
+[node name="Body" type="CollisionShape3D" parent="." unique_id=869224759]
+shape = SubResource("CapsuleShape3D_if8o1")
+
+[node name="Mesh" type="CSGMesh3D" parent="Body" unique_id=1066778846]
+mesh = SubResource("CapsuleMesh_if8o1")
+
+[node name="Arms" type="Node3D" parent="." unique_id=2007626580]
+
+[node name="LeftArm" type="Node3D" parent="Arms" unique_id=837138006]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, -0.5, 0, 0)
+
+[node name="Arm" type="CSGBox3D" parent="Arms/LeftArm" unique_id=1745740213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6357083)
+size = Vector3(0.1, 0.1, 1)
+
+[node name="Hand" type="CSGSphere3D" parent="Arms/LeftArm" unique_id=722214762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
+radius = 0.15
+
+[node name="RightArm" type="Node3D" parent="Arms" unique_id=854731928]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0.5, 0, 0)
+
+[node name="Arm" type="CSGBox3D" parent="Arms/RightArm" unique_id=1554093019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6357083)
+size = Vector3(0.1, 0.1, 1)
+
+[node name="Hand" type="CSGSphere3D" parent="Arms/RightArm" unique_id=795148158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
+radius = 0.15
