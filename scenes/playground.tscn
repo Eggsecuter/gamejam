@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cn1ikapsrbyhb"]
 
-[ext_resource type="PackedScene" uid="uid://d2630qawyoewo" path="res://components/player.tscn" id="1_qchbg"]
+[ext_resource type="PackedScene" uid="uid://d2630qawyoewo" path="res://components/player/player.tscn" id="1_qchbg"]
 [ext_resource type="Texture2D" uid="uid://cave6qu63l17i" path="res://prototyping/textures/PNG/Green/texture_09.png" id="2_kddj0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8s1k"]
