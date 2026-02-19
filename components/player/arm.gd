@@ -3,7 +3,7 @@ extends Node3D
 
 @export var inactive_arm_rotation := -40.0
 @export var active_arm_rotation := 10.0
-@export var rotation_speed := 120.0
+@export var rotation_speed := 200.0
 
 var target_rotation_x : float
 
