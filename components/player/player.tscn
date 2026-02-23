@@ -4,17 +4,26 @@
 [ext_resource type="Script" uid="uid://b851q76ma6i87" path="res://components/player/arms.gd" id="2_kfe3d"]
 [ext_resource type="Script" uid="uid://bm5vwb8hy2iwf" path="res://components/player/first_person_camera.gd" id="2_wa6cj"]
 [ext_resource type="Script" uid="uid://cxdmncmwsubo8" path="res://components/player/arm.gd" id="3_ph1f6"]
+[ext_resource type="Script" uid="uid://ccfrxuw4ss0rb" path="res://components/player/interact_ray.gd" id="5_mpawu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_if8o1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_if8o1"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1040119494]
+collision_layer = 2
 script = ExtResource("1_0g4kb")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1716744844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37311167, 0)
 script = ExtResource("2_wa6cj")
+
+[node name="InteractRay" type="RayCast3D" parent="Camera3D" unique_id=662630383]
+target_position = Vector3(0, 0, -5)
+collision_mask = 512
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("5_mpawu")
 
 [node name="Body" type="CollisionShape3D" parent="." unique_id=869224759]
 shape = SubResource("CapsuleShape3D_if8o1")
@@ -48,5 +57,20 @@ size = Vector3(0.1, 0.1, 1)
 [node name="Hand" type="CSGSphere3D" parent="Arms/RightArm" unique_id=795148158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
 radius = 0.15
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=74778595]
+
+[node name="Mouse" type="ColorRect" parent="HUD" unique_id=1720826228]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="on_turn" from="Camera3D" to="." method="_on_camera_3d_on_turn"]

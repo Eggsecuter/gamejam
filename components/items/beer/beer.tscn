@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ce68r5tn5bsdf"]
+
+[ext_resource type="Texture2D" uid="uid://bxrg4w6n7grn" path="res://prototyping/textures/PNG/Orange/texture_02.png" id="1_b32km"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tatjl"]
+albedo_texture = ExtResource("1_b32km")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b32km"]
+height = 0.2
+radius = 0.07
+
+[node name="Beer" type="RigidBody3D" unique_id=437736261]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1584145242]
+material_override = SubResource("StandardMaterial3D_tatjl")
+radius = 0.07
+height = 0.2
+sides = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=83841816]
+shape = SubResource("CylinderShape3D_b32km")

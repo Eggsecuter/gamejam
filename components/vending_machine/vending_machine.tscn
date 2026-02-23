@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dxggh2mbf7u8c"]
+
+[ext_resource type="Script" uid="uid://bee2yvwgaho8b" path="res://components/vending_machine/vending_machine.gd" id="1_7x76d"]
+[ext_resource type="Texture2D" uid="uid://dntytkavr24dp" path="res://prototyping/textures/PNG/Purple/texture_03.png" id="1_hjwpi"]
+[ext_resource type="PackedScene" uid="uid://ce68r5tn5bsdf" path="res://components/items/beer/beer.tscn" id="2_3cuji"]
+[ext_resource type="PackedScene" uid="uid://bdn1xf18q22ul" path="res://components/interactable/interactable.tscn" id="3_27rv6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c88df"]
+albedo_texture = ExtResource("1_hjwpi")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3cuji"]
+size = Vector3(0.5, 1, 1)
+
+[node name="VendingMachine" type="Node3D" unique_id=957530806]
+script = ExtResource("1_7x76d")
+items = Array[PackedScene]([ExtResource("2_3cuji")])
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=643783187]
+material_override = SubResource("StandardMaterial3D_c88df")
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 2.5, 1)
+
+[node name="Interactable" parent="." unique_id=822640315 instance=ExtResource("3_27rv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=1750285925]
+shape = SubResource("BoxShape3D_3cuji")
+
+[node name="ItemSpawn" type="Node3D" parent="." unique_id=937784264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.5)
+
+[connection signal="on_interact" from="Interactable" to="." method="_on_interact"]

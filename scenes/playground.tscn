@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2630qawyoewo" path="res://components/player/player.tscn" id="1_qchbg"]
 [ext_resource type="Texture2D" uid="uid://cave6qu63l17i" path="res://prototyping/textures/PNG/Green/texture_09.png" id="2_kddj0"]
+[ext_resource type="PackedScene" uid="uid://dxggh2mbf7u8c" path="res://components/vending_machine/vending_machine.tscn" id="3_kddj0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8s1k"]
 albedo_texture = ExtResource("2_kddj0")
@@ -20,4 +21,8 @@ shadow_enabled = true
 [node name="Floor" type="CSGBox3D" parent="Environment" unique_id=1264025510]
 material_override = SubResource("StandardMaterial3D_q8s1k")
 use_collision = true
+collision_mask = 3
 size = Vector3(100, 1, 100)
+
+[node name="VendingMachine" parent="Environment" unique_id=957530806 instance=ExtResource("3_kddj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.75, -11)
